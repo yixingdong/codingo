@@ -11,15 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
+Route::get('/', 'HomeController@welcome')->name('welcome');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('posts','PostController@index');
+
+Route::get('post/{post}','PostController@show');
+
+Route::resource('comment','CommentController');
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

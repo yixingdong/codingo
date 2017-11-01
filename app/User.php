@@ -32,4 +32,9 @@ class User extends \TCG\Voyager\Models\User
     {
         $this->notify(new ResetPasswordNotification($token));
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

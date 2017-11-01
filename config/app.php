@@ -168,6 +168,7 @@ return [
          * Package Service Providers...
          */
         Backup\BackupServiceProvider::class, // 数据库备份工具
+        \Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,// SEO 优化工具
 
         /*
          * Application Service Providers...

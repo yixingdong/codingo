@@ -1,77 +1,85 @@
-@extends('layouts.app')
+@extends('layouts.coding')
+
+@section('css')
+    <style>
+        .index-page .wrapper > .header {
+            height: 50vh;
+        }
+        #slogan {
+            margin-top: 18vh;
+            color: #FFFFFF;
+            text-align: center;
+        }
+    </style>
+@endsection
+
+@section('header')
+    @include('partials.header')
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+    <div class="section container">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="card card-signup">
+                <form class="form" method="POST" action="{{ route('register') }}">
+                    {{ csrf_field() }}
+                    <div class="header header-primary text-center">
+                        <h4>注册会员</h4>
+                    </div>
+                    @if ($errors->has('email'))
+                        <div class="alert alert-danger text-center">
+                            ~ 此邮箱已被注册 ~
+                        </div>
+                    @endif
+                    @if ($errors->has('name'))
+                        <div class="alert alert-danger text-center">
+                            ~ 好名字大家都抢 ~
+                        </div>
+                    @endif
+                    @if ($errors->has('password'))
+                        <div class="alert alert-danger text-center">
+                            ~ 密码不一致 ~
+                        </div>
+                    @endif
+                    <div class="content">
+                        <div class="input-group">
+                            <span class="input-group-addon">您的昵称</span>
+                            <div class="form-group is-empty">
+                                <input type="text" id="name" name="name"  value="{{ old('name') }}" class="form-control"  required autofocus>
+                                <span class="material-input"></span>
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">您的邮箱</span>
+                            <div class="form-group is-empty">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                                <span class="material-input"></span>
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">设置密码</span>
+                            <div class="form-group is-empty">
                                 <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                                <span class="material-input"></span>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">确认密码</span>
+                            <div class="form-group is-empty">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <span class="material-input"></span>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="footer text-center">
+                        <button type="submit" class="btn btn-simple btn-primary btn-lg">
+                            Register
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
 @endsection
