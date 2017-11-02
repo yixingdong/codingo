@@ -23,6 +23,6 @@ Route::get('post/{post}','PostController@show');
 
 Route::resource('comment','CommentController');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin-coding'], function () {
     Voyager::routes();
 });
