@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     protected $fillable = ['user_id','target_type','target_id','parent_id','body'];
+
     /**
      * 当前这条评论数据所属的用户.
      */

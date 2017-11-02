@@ -12,9 +12,6 @@ class Post extends VoyagerPost
      */
     public function comments()
     {
-//        return Comment::where('target_type','post')
-//            ->where('target_id',$this->id)
-//            ->get();
         return $this->hasMany(Comment::class,'target_id')->where('target_type','post');
     }
 

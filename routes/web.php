@@ -26,3 +26,5 @@ Route::resource('comment','CommentController');
 Route::group(['prefix' => 'admin-coding'], function () {
     Voyager::routes();
 });
+
+
