@@ -22,20 +22,16 @@ class PostController extends Controller
 
         $page = is_null($request->get('page'))?1:$request->get('page');
 
-        $content = Cache::rememberForever('posts.'.$page, function() use ($page){
-            $posts = Post::paginate(10);
-            return collect(['items'=>$posts->getItems(),'links'=>$posts->links()]);
+        $posts = Cache::rememberForever('posts.'.$page, function() use ($page){
+            return Post::with('comments')->paginate(10);
         });
 
-
-        return view('coding.posts',compact('content'));
+        return view('coding.posts',compact('posts'));
     }
 
     public function show($slug)
     {
-        $post = Cache::rememberForever('post.cache.'.$slug, function() use ($slug){
-            return Post::where('slug',$slug)->firstOrFail();
-        });
+        $post = Post::findBySlug($slug);
 
         $this->seo()->setTitle($post->seo_title);
         $this->seo()->setDescription($post->meta_description);

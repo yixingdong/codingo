@@ -37,17 +37,33 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         if(Auth::check()){
-            $targetId = $request->get('target_id');
-            $targetType = $request->get('target_type');
+            $target_id = $request->get('target_id');
+            $target_type = $request->get('target_type');
             $body = $request->get('content');
-            if($targetId && $targetType && $body)
-                Comment::create([
-                    'user_id'      =>  Auth::user()->id,
-                    'target_id'    =>  $targetId,
-                    'target_type'  =>  $targetType,
-                    'parent_id'    =>  $request->get('parent'),
-                    'body'         =>  $body
-                ]);
+            if($target_id && $target_type && $body){
+                switch ($target_type){
+                    case 'post':
+                    case 'course':
+                    case 'lesson':
+                        Comment::create([
+                            'user_id'      =>  Auth::user()->id,
+                            'target_id'    =>  $target_id,
+                            'target_type'  =>  $target_type,
+                            'parent_id'    =>  $request->get('parent'),
+                            'body'         =>  $body
+                        ]);
+
+                        $url_str = url()->previous();
+                        $slug = substr($url_str,strrpos($url_str,'/')+1);
+
+                        Cache::forget($target_type.'.'.$slug);
+                        Cache::forget($target_type.'.root_comments.'.$target_id);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
         }
         return back();
     }

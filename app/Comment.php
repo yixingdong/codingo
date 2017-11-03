@@ -29,7 +29,9 @@ class Comment extends Model
      */
     public function children()
     {
-        return $this->hasMany(Comment::class,'parent_id')->where('target_type',$this->target_type);
+        return $this->hasMany(Comment::class,'parent_id')
+            ->where('target_type',$this->target_type)
+            ->with('user','children');
     }
 
     /**

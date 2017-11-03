@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use TCG\Voyager\Models\Post as VoyagerPost;
 
 class Post extends VoyagerPost
@@ -12,7 +13,9 @@ class Post extends VoyagerPost
      */
     public function comments()
     {
-        return $this->hasMany(Comment::class,'target_id')->where('target_type','post');
+        return $this->hasMany(Comment::class,'target_id')
+            ->where('target_type','post')
+            ->with('user');
     }
 
     /**
@@ -20,9 +23,11 @@ class Post extends VoyagerPost
      */
     public function getRootCommentsAttribute()
     {
-        return Comment::where('target_type','post')
-            ->where('target_id',$this->id)
-            ->where('parent_id',null)->get();
+        return Cache::rememberForever('cc.post.root_comments.'.$this->id, function(){
+            return Comment::where('target_type','post')
+                ->where('target_id',$this->id)
+                ->where('parent_id',null)->with('children','user')->get();
+        });
     }
 
     /**
@@ -37,5 +42,13 @@ class Post extends VoyagerPost
             }
         }
         return $output;
+    }
+
+    static public function findBySlug($slug)
+    {
+        return Cache::rememberForever('post.'.$slug,function () use ($slug){
+            return self::with('comments')
+                ->where('slug',$slug)->firstOrFail();
+        });
     }
 }
