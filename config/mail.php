@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'sanmingzhi@163.com'),
-        'name' => env('MAIL_FROM_NAME', 'Sanmingzhi'),
+        'name' => env('MAIL_FROM_NAME', 'Coding10.com - 二进制编程'),
     ],
 
     /*
