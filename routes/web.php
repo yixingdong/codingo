@@ -19,7 +19,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('posts','PostController@index');
 
-Route::get('post/{post}','PostController@show');
+Route::get('post/{slug}','PostController@show');
+
+Route::get('courses','CourseController@index');
+
+Route::get('course/{slug}','CourseController@show');
+
+Route::get('lesson/{slug}','LessonController@show');
+
+Route::get('lessons','LessonController@index');
 
 Route::resource('comment','CommentController');
 
