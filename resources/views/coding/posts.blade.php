@@ -48,12 +48,12 @@
                         <div class="col-md-12">
                             <div  class="team-player">
                                 <h4 class="title">{{$post->title}}</h4>
-                                <a href="{{url('post/'.$post->id)}}"><img  src="{{$post->image}}" alt="Thumbnail Image" class="img-rounded img-raised"></a>
+                                <a href="{{url('post/'.$post->slug)}}"><img  src="{{$post->image}}" alt="Thumbnail Image" class="img-rounded img-raised"></a>
 
                                 <p class="description text-left blog-desc">{!! $post->body !!}</p>
                                 <div class="blog-footer">
                                     <span class="text-muted pull-left">发布日期：{{$post->created_at}}</span>
-                                    <span class="text-muted pull-right"><a href="{{url('post/'.$post->id)}}" class="read-me">阅读全文</a></span>
+                                    <span class="text-muted pull-right"><a href="{{url('post/'.$post->slug)}}" class="read-me">阅读全文</a></span>
                                 </div>
                             </div>
                         </div>
