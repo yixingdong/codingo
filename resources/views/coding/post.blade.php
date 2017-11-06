@@ -30,6 +30,9 @@
         .font-yhl{
             font-family: "Microsoft YaHei UI Light";
         }
+        .fs-18{
+            font-size: 18px;
+        }
     </style>
 @endsection
 
@@ -48,8 +51,8 @@
                             <h3 class="content-title space20 text-center font-yhl">{{$post->title}}</h3>
                             <div class="content-body description">
                                 <div class="content-publish">
-                                    <span class="text-muted pull-left">作者：Coding Man</span>
-                                    <span class="text-muted pull-right text-warning">发布日期：{{$post->updated_at->format('Y-m-d')}}</span>
+                                    <span class="text-muted pull-left fs-18">作者：Coding Man</span>
+                                    <span class="text-muted pull-right text-warning fs-18">发布日期：{{$post->updated_at->format('Y-m-d')}}</span>
                                 </div>
                                 <div class="post-content">
                                     {!! $post->body !!}
@@ -72,7 +75,7 @@
                                         </div>
                                         @endif
                                         @if(Auth::check())
-                                            <h3 id="comment-title" class="title text-center">Leave Your Reply</h3>
+                                            <h3 id="comment-title" class="title text-center">期待您的参与</h3>
                                             <div class="media media-post">
                                                 <a class="pull-left author" href="#pablo">
                                                     <div class="avatar">
@@ -90,7 +93,7 @@
                                                             <span class="material-input"></span>
                                                         </div>
                                                         <div class="media-footer">
-                                                            <button href="#pablo" class="btn btn-success btn-round btn-wd pull-right">发表评论</button>
+                                                            <button href="#pablo" class="btn btn-success btn-round btn-wd pull-right fs-18">发表评论</button>
                                                         </div>
                                                     </form>
                                                 </div>
