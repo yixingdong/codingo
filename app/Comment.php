@@ -8,38 +8,14 @@ class Comment extends Model
 {
     protected $fillable = ['user_id','target_type','target_id','parent_id','body'];
 
+    protected $table = 'comments';
+
     /**
      * 当前这条评论数据所属的用户.
      */
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    /**
-     * 当前这条评论数据所属的文章
-     */
-    public function target()
-    {
-        return $this->belongsTo('App\\'.ucfirst($this->target_type),'target_id');
-    }
-
-    /**
-     * 当前这条评论的回复评论
-     */
-    public function children()
-    {
-        return $this->hasMany(Comment::class,'parent_id')
-            ->where('target_type',$this->target_type)
-            ->with('user','children');
-    }
-
-    /**
-     * 当前这条评论的上层评论数据
-     */
-    public function parent()
-    {
-        return $this->belongsTo(Comment::class,'parent_id')->where('target_type',$this->target_type);
     }
 
     /**

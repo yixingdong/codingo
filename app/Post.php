@@ -13,7 +13,7 @@ class Post extends VoyagerPost
      */
     public function comments()
     {
-        return $this->hasMany(Comment::class,'target_id')
+        return $this->hasMany(PostComment::class,'target_id')
             ->where('target_type','post')
             ->with('user');
     }
@@ -24,7 +24,7 @@ class Post extends VoyagerPost
     public function getRootCommentsAttribute()
     {
         return Cache::rememberForever('post.root_comments.'.$this->id, function(){
-            return Comment::where('target_type','post')
+            return PostComment::where('target_type','post')
                 ->where('target_id',$this->id)
                 ->where('parent_id',null)
                 ->with('children','user')->get();
