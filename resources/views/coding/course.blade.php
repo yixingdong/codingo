@@ -50,7 +50,7 @@
                     </tr>
                     @foreach($course->lessons as $lesson)
                         <tr>
-                            <td class="col-sm-10 text-left"><a href="{{url('lesson/'.$lesson->id)}}" class="course-link">{{$lesson->name}}</a></td>
+                            <td class="col-sm-10 text-left"><a href="{{url('lesson/'.$lesson->slug)}}" class="course-link">{{$lesson->name}}</a></td>
                             <td class="col-sm-2 text-center text-blue">{{$lesson->created_at->format('Y-m-d')}}</td>
                         </tr>
                     @endforeach

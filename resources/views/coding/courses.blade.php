@@ -31,10 +31,10 @@
                 @foreach($courses as $course)
                     <div class="col-md-4">
                         <div  class="team-player">
-                            <a href="{{url('course/'.$course->id)}}">
+                            <a href="{{url('course/'.$course->slug)}}">
                                 <img  src="{{$course->image}}" alt="Thumbnail Image" class="img-rounded img-raised"></a>
                             <h4  class="title">
-                                <a href="{{url('course/'.$course->id)}}" class="course-item">{{$course->name}} </a> <br>
+                                <a href="{{url('course/'.$course->slug)}}" class="course-item">{{$course->name}} </a> <br>
                                 <small  class="text-muted">{{$course->created_at}}</small>
                             </h4>
                         </div>

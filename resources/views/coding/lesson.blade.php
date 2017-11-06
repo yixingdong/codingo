@@ -42,7 +42,8 @@
 @section('header')
     <div class="media-wrapper">
         <video id="player1" width="640" height="360" style="max-width:100%;" poster="https://lorempixel.com/640/480/?93718" preload="none" controls playsinline webkit-playsinline>
-            <source src="{{url('storage/'.json_decode($lesson->video)[0]->download_link)}}" type="video/mp4">
+            {{--<source src="{{url('storage/'.json_decode($lesson->video)[0]->download_link)}}" type="video/mp4">--}}
+            <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4">
             {{--http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4--}}
         </video>
     </div>

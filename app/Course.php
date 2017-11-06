@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Course extends Model
 {
+    const PUBLISHED = 'PUBLISHED';
+
     public function category()
     {
         return $this->belongsTo(Category::class);
