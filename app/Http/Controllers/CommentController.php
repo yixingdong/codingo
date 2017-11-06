@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class CommentController extends Controller
 {
@@ -42,6 +43,7 @@ class CommentController extends Controller
             $target_type = $request->get('target_type');
             $body = $request->get('content');
             if($target_id && $target_type && $body){
+                $target_type = strtolower($target_type);
                 switch ($target_type){
                     case 'post':
                     case 'course':

@@ -84,7 +84,7 @@
                                                         <div class="form-group is-empty">
                                                             {!! csrf_field() !!}
                                                             <input type="hidden" name="target_id" value="{{$post->id}}"/>
-                                                            <input type="hidden" name="target_type" value="Post"/>
+                                                            <input type="hidden" name="target_type" value="post"/>
                                                             <input id="comment-parent" type="hidden" name="parent" value=""/>
                                                             <textarea id="comment-tt" name="content" class="form-control" placeholder="请开始你的表演" rows="6"></textarea>
                                                             <span class="material-input"></span>

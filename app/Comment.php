@@ -21,7 +21,7 @@ class Comment extends Model
      */
     public function target()
     {
-        return $this->belongsTo('App\\'.$this->target_type,'target_id');
+        return $this->belongsTo('App\\'.ucfirst($this->target_type),'target_id');
     }
 
     /**
