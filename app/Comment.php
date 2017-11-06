@@ -30,7 +30,7 @@ class Comment extends Model
             <img class="media-object" src="/storage/{$this->user->avatar}" alt="User Avatar" width="64" height="64">
         </div>
     </a>
-    <div class="media-body fs-18">
+    <div class="media-body fs-16">
         <h4 class="media-heading">{$this->user->name}<small>· {$this->created_at}</small></h4>
         <h6 class="text-muted"></h6>
 

@@ -30,9 +30,13 @@
         .font-yhl{
             font-family: "Microsoft YaHei UI Light";
         }
+        .fs-16{
+            font-size: 16px;
+        }
         .fs-18{
             font-size: 18px;
         }
+
     </style>
 @endsection
 
