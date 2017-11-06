@@ -27,9 +27,4 @@ class Course extends Model
             return self::with('lessons')->where('slug',$slug)->firstOrFail();
         });
     }
-
-    public function scopePublished(Builder $query)
-    {
-        return $query->where('status','published');
-    }
 }
