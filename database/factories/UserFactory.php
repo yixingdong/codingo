@@ -48,7 +48,7 @@ $factory->define(App\Course::class, function (Faker $faker) {
         'body' => $faker->paragraph,
         'image'=>$faker->imageUrl(),
         'slug' => $faker->slug,
-        'status' => 'published',
+        'published' => 1,
         'meta_description'=>$faker->paragraph,
         'meta_keywords'=>$faker->name
     ];
@@ -62,7 +62,7 @@ $factory->define(App\Lesson::class, function (Faker $faker) {
         'body' => $faker->paragraph,
         'image'=>$faker->imageUrl(),
         'slug' => $faker->slug,
-        'status' => 'published',
+        'published' => 1,
         'meta_description'=>$faker->paragraph,
         'meta_keywords'=>$faker->name,
         'video' => $faker->imageUrl()
