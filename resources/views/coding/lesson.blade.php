@@ -70,9 +70,9 @@
 
                             <td class="col-sm-10 text-left">
                                 @if($item->id == $lesson->id)
-                                    <a href="{{url('lesson/'.$item->id)}}" class="course-link activated">{{$item->name}}</a>
+                                    <a href="{{url('lesson/'.$item->slug)}}" class="course-link activated">{{$item->name}}</a>
                                 @else
-                                    <a href="{{url('lesson/'.$item->id)}}" class="course-link">{{$item->name}}</a>
+                                    <a href="{{url('lesson/'.$item->slug)}}" class="course-link">{{$item->name}}</a>
                                 @endif
                             </td>
                             <td class="col-sm-2 text-center text-blue">{{$item->created_at->format('Y-m-d')}}</td>

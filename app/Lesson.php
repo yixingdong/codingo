@@ -13,7 +13,7 @@ class Lesson extends Model
 
     public function course()
     {
-        return $this->belongsTo(Course::class);
+        return $this->belongsTo(Course::class)->with('lessons');
     }
 
     static public function findBySlug($slug)
