@@ -22,7 +22,7 @@ class CourseController extends Controller
         $page = is_null($request->get('page'))?1:$request->get('page');
 
         $courses = Cache::rememberForever('courses.'.$page, function() use ($page){
-            return Course::paginate(10);
+            return Course::paginate(6);
         });
 
         return view('coding.courses',compact('courses'));
