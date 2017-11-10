@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use App\Post;
+use TCG\Voyager\Facades\Voyager;
 
 class SiteController extends Controller
 {
@@ -49,5 +50,10 @@ class SiteController extends Controller
         // generate your sitemap (format, filename)
         return $sitemap->store('xml', 'coding');
         // this will generate file coding.xml to your public folder
+    }
+
+    public function test()
+    {
+        dd(setting('.test_name'));
     }
 }
