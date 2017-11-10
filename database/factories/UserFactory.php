@@ -41,7 +41,8 @@ $factory->define(App\Post::class, function (Faker $faker) {
         'meta_keywords'=>$faker->name,
         'sitemap_include'=>1,
         'sitemap_freq'=>$faker->randomElement($freq_items),
-        'sitemap_priority' => $faker->randomElement($priorities)
+        'sitemap_priority' => $faker->randomElement($priorities),
+        'status' => 'published'
     ];
 });
 
