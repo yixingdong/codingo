@@ -10,17 +10,17 @@
             text-align: center;
         }
         .team .team-player img {
-            max-width: 88%;
+            max-width: 100%;
         }
         .team .team-player .title {
             margin: 20px auto;
         }
         .blog-desc{
-            padding: 1% 6%;
-            padding-top: 3%;
+            padding: 1% 0;
+            padding-top: 5%;
         }
         .blog-footer{
-            padding: 0 6%;
+            padding: 0 0;
             padding-bottom: 8%;
         }
         .read-me{

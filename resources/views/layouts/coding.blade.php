@@ -2,14 +2,14 @@
 <html lang="zh-hans">
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('/')}}/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{asset('/')}}/assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('')}}assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="{{asset('')}}assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     {!! SEO::generate() !!}
     <meta name="author" content="王国营" />
-    <link href="{{asset('/')}}/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="{{asset('/')}}/assets/css/material-kit.css" rel="stylesheet"/>
-    <link href="{{asset('/')}}/assets/css/basic.css" rel="stylesheet" />
+    <link href="{{asset('')}}assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{asset('')}}assets/css/material-kit.css" rel="stylesheet"/>
+    <link href="{{asset('')}}assets/css/basic.css" rel="stylesheet" />
     @yield('css')
 </head>
 
@@ -27,7 +27,7 @@
             <a href="/">
                 <div class="logo-container">
                     <div class="logo">
-                        <img src="{{asset('/')}}/assets/img/logo.png" alt="Coding Man" data-html="true">
+                        <img src="{{asset('')}}assets/img/logo.png" alt="Coding Man" data-html="true">
                     </div>
                     <div class="brand">
                         Coding Man

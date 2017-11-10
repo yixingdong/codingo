@@ -6,7 +6,6 @@ use App\Course;
 use App\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
 use App\Post;
 
@@ -49,6 +48,6 @@ class SiteController extends Controller
 
         // generate your sitemap (format, filename)
         return $sitemap->store('xml', 'coding');
-        // this will generate file mysitemap.xml to your public folder
+        // this will generate file coding.xml to your public folder
     }
 }
