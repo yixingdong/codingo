@@ -31,6 +31,8 @@ Route::get('lessons','LessonController@index');
 
 Route::resource('comment','CommentController');
 
+Route::get('sitemap','SiteController@sitemap');
+
 Route::group(['prefix' => 'admin-coding'], function () {
     Voyager::routes();
 });
