@@ -54,6 +54,6 @@ class SiteController extends Controller
 
     public function test()
     {
-        dd(setting('.test_name'));
+        dd(setting('.site_description'));
     }
 }
