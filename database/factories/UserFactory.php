@@ -26,6 +26,8 @@ $factory->define(App\User::class, function (Faker $faker) {
 
 $factory->define(App\Post::class, function (Faker $faker) {
     $category_ids = \App\Category::pluck('id')->toArray();
+    $freq_items = ['Always','Hourly','Daily','Weekly','Monthly','Yearly'];
+    $priorities = ['0.1','0.2','0.3','0.4','0.5','0.6','0.7','0.8','0.9'];
     return [
         'title' => $faker->name,
         'author_id'=> 1,
@@ -36,12 +38,17 @@ $factory->define(App\Post::class, function (Faker $faker) {
         'image'=>$faker->imageUrl(),
         'slug' => $faker->slug,
         'meta_description'=>$faker->title,
-        'meta_keywords'=>$faker->name
+        'meta_keywords'=>$faker->name,
+        'sitemap_include'=>1,
+        'sitemap_freq'=>$faker->randomElement($freq_items),
+        'sitemap_priority' => $faker->randomElement($priorities)
     ];
 });
 
 $factory->define(App\Course::class, function (Faker $faker) {
     $category_ids = \App\Category::pluck('id')->toArray();
+    $freq_items = ['Always','Hourly','Daily','Weekly','Monthly','Yearly'];
+    $priorities = ['0.1','0.2','0.3','0.4','0.5','0.6','0.7','0.8','0.9'];
     return [
         'name' => $faker->name,
         'category_id' => $faker->randomElement($category_ids),
@@ -50,12 +57,17 @@ $factory->define(App\Course::class, function (Faker $faker) {
         'slug' => $faker->slug,
         'published' => 1,
         'meta_description'=>$faker->paragraph,
-        'meta_keywords'=>$faker->name
+        'meta_keywords'=>$faker->name,
+        'sitemap_include'=>1,
+        'sitemap_freq'=>$faker->randomElement($freq_items),
+        'sitemap_priority' => $faker->randomElement($priorities)
     ];
 });
 
 $factory->define(App\Lesson::class, function (Faker $faker) {
     $course_ids = \App\Course::pluck('id')->toArray();
+    $freq_items = ['Always','Hourly','Daily','Weekly','Monthly','Yearly'];
+    $priorities = ['0.1','0.2','0.3','0.4','0.5','0.6','0.7','0.8','0.9'];
     return [
         'name' => $faker->name,
         'course_id' => $faker->randomElement($course_ids),
@@ -65,7 +77,10 @@ $factory->define(App\Lesson::class, function (Faker $faker) {
         'published' => 1,
         'meta_description'=>$faker->paragraph,
         'meta_keywords'=>$faker->name,
-        'video' => $faker->imageUrl()
+        'video' => $faker->imageUrl(),
+        'sitemap_include'=>1,
+        'sitemap_freq'=>$faker->randomElement($freq_items),
+        'sitemap_priority' => $faker->randomElement($priorities)
     ];
 });
 
